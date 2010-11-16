@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table xmlns="http://query.yahooapis.com/v1/schema/table.xsd">
+  <meta>
+    <sampleQuery>select * from {table}</sampleQuery>
+  </meta>
+  <bindings>
+    <select itemPath="" produces="XML">
+      <urls>
+        <url></url>
+      </urls>
+      <inputs></inputs>
+      <execute><![CDATA[
+// Ported from http://ejohn.org/blog/bringing-the-browser-to-the-server/
+y.include('http://chiarg.com/yql/env.js');
+y.include('http://code.jquery.com/jquery-1.4.4.js');
+window.location = "http://alistapart.com/";
+console.log("Newest A List Apart Posts:");
+$("h4.title").each(function(){
+  console.log(" - " + this.textContent);
+});
+      ]]></execute>
+    </select>
+  </bindings>
+</table>
